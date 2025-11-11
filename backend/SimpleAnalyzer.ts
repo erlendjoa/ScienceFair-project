@@ -4,6 +4,7 @@ interface Analyzer {
 
 export class SimpleAnalyzer implements Analyzer {
     public join(s: string): string {
-        return s.toLowerCase();
+        // normalize by lowercasing and removing whitespace so 'b a n a n a' matches 'Banana'
+        return s.toLowerCase().replace(/\s+/g, '');
     }
 }
